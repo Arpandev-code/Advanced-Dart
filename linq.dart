@@ -50,4 +50,15 @@ void main() {
   compoudResult4.forEach((c) => print(c));
 
   //Set Operator
+  var number2 = [1, 1, 3, 3, 4, 4];
+  var number3 = [1, 1, 3, 3, 4, 4];
+  var result2 = number2.toSet();
+// print(result2);
+  //result2.forEach((e) => print(e));
+  //union(sum)
+  var res1 = number2.toSet().union(number3.toSet());
+  //intersection(intersect)(common number avilable in both the list)
+  var res2 = number2.toSet().intersection(number3.toSet());
+  // res1.forEach((e) => print(e));
+  res2.forEach((e) => print(e));
 }
