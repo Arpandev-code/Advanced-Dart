@@ -60,5 +60,20 @@ void main() {
   //intersection(intersect)(common number avilable in both the list)
   var res2 = number2.toSet().intersection(number3.toSet());
   // res1.forEach((e) => print(e));
-  res2.forEach((e) => print(e));
+  // res2.forEach((e) => print(e));
+
+  //Element Operator
+  var compoudResult5 = customers
+      .expand(
+        (c) => c.Orders.where((o) => o.orderTotal > 2000).map((e) =>
+            {"id": c.id, "name": "${c.customerName}", "order": e.orderTotal}),
+      )
+      .first; // return the first result
+  var compoudResult6 = customers
+      .expand(
+        (c) => c.Orders.where((o) => o.orderTotal > 2000).map((e) =>
+            {"id": c.id, "name": "${c.customerName}", "order": e.orderTotal}),
+      )
+      .elementAt(3); // element at index 3
+  print(compoudResult6);
 }
