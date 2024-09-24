@@ -38,7 +38,16 @@ void main() {
           {"id": c.id, "name": "${c.customerName}", "order": e.orderTotal}))
       .skip(3); //skip the first 3 result with skip
   //printing skiped result
-  compoudResult3.forEach((c) => print(c));
+  // compoudResult3.forEach((c) => print(c));
   //printing first 3 result
   //compoudResult2.forEach((c) => print(c));
+
+  //Partitioning Operator
+  var compoudResult4 = customers.expand((c) =>
+      c.Orders.where((o) => o.orderTotal > 2000)
+          .map((e) => e.orderTotal)
+          .takeWhile((e) => e > 4000));
+  compoudResult4.forEach((c) => print(c));
+
+  //Set Operator
 }
